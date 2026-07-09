@@ -1,0 +1,32 @@
+# Seguridad y Entorno
+.env
+*.log
+SECRET_KEY.txt
+
+# Dependencias
+node_modules/
+venv/
+.venv/
+__pycache__/
+vendor/
+
+# Sistema Operativo
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+
+# Temporales de compilación o ejecución
+tmp/
+
+# Ejecutables
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+# O el nombre específico de tu binario
+mi_app_go
