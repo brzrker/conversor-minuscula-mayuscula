@@ -20,7 +20,7 @@ type Respuesta struct {
 
 func main() {
 	// Se define la ruta
-	http.HandleFunc("/conversor-minuscula-mayuscula", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/conversor", func(w http.ResponseWriter, r *http.Request) {
 
 		// Validamos el método
 		if r.Method != http.MethodPost {
