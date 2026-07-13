@@ -21,7 +21,18 @@ type Respuesta struct {
 func main() {
 	// Se define la ruta
 	http.HandleFunc("/conversor", func(w http.ResponseWriter, r *http.Request) {
+		// Permisos CORS para el navegador
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 
+		// Si el navegador solo está preguntando por los permisos (petición OPTIONS invisble)
+		// respondemos con un 200 OK de inmediato y salimos de la función.
+		if r.Method == "OPTIONS" {
+			w.WriteHeader(http.StatusOK)
+			return
+		}
+		
 		// Validamos el método
 		if r.Method != http.MethodPost {
 			http.Error(w, "Método no permitido", http.StatusMethodNotAllowed)
